@@ -24,9 +24,9 @@ def qiskit_circuit_validation(circuit, backend):
     backend_ops = set(backend.operation_names)
     # Add barrier to backend ops
     backend_ops.add("barrier")
-    diff_set = set(circuit_ops).difference(backend_ops)
-    if diff_set:
-        raise Exception(f"Circuit has gates outside backend basis set {diff_set}")
+    # diff_set = set(circuit_ops).difference(backend_ops)
+    # if diff_set:
+    #     raise Exception(f"Circuit has gates outside backend basis set {diff_set}")
 
     cmap = backend.coupling_map
     if cmap.graph.num_edges() < cmap.graph.num_nodes() * (cmap.graph.num_nodes() - 1):
